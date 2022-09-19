@@ -1,10 +1,10 @@
 # ICS-labs
-Data Lab [x]
-Bomb Lab [x]
-Attack Lab [x]
-Cache Lab [x]
-Shell Lab []
-Malloc Lab []
-Proxy lab []
+- [x] Data Lab 
+- [x] Bomb Lab
+- [x] Attack Lab
+- [x] Cache Lab
+- [] Shell Lab
+- [] Malloc Lab
+- [] Proxy Lab
 
-Link lab [x]
+- [x] Link Lab
