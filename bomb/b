@@ -1,0 +1,12 @@
+# explode
+b *0x40143a
+
+# func7 start and return
+b *0x401204
+b *0x401211
+b *0x401241
+
+# secret_phase
+b *0x40125a
+
+r p.txt

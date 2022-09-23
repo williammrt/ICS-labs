@@ -1,0 +1,15 @@
+# <getbuf> retq
+b *0x4017bd
+b *0x4019a2
+b *0x4019ab
+b *0x401963
+b *0x4019d6
+b *0x401a84
+b *0x4018fa
+r -q -i rin3
+c
+c
+c
+c
+c
+c	

