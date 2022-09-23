@@ -1,11 +1,12 @@
 # ICS-labs
 https://csapp.cs.cmu.edu/3e/labs.html
-- [x] Data Lab 
-- [x] Bomb Lab
-- [x] Attack Lab
+You can go to the file and type "bash testall" for easy testing
+- [x] Data Lab: /datalab-handout/,
+- [x] Bomb Lab: /bomb/, type 
+- [x] Attack Lab: /target1/
 - [x] Cache Lab
 - [ ] Shell Lab
 - [ ] Malloc Lab
 - [ ] Proxy Lab
 
-- [x] Link Lab
+- [x] Link Lab(not public)
